@@ -67,5 +67,7 @@ Missing: Farming Fund
 	* Incomplete data sets: Probably not, because the EU are bureaucrats, but it's possible..
 
 8. Similar
+
 Openspending.org has a similar dataset. This is however só big that it is almost unusable. Very lowlevel data is making finding data very hard
+
 https://openspending.org/eu-commission-fts?_view=default
