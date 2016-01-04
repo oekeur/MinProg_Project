@@ -22,6 +22,7 @@ The aim is to clarify some common misconceptions about EU spending. Therefore it
     * Table for data exploration
     * Integrating other data (such as GDP?)
 
+
 2. Problem Solving
 
 The problem being solved is aiding to transparancy about spending in the EU. This project could therefore possibly be seen among other Open Spending iniatives.
@@ -30,6 +31,7 @@ There will be some stories told about common misconceptions about spending in th
 
 3. Sketch
 ![Designsketch](/doc/mockup1.png)
+
 
 4. Data sets and sources
 
@@ -42,13 +44,13 @@ European Social Fund: http://ec.europa.eu/esf/main.jsp?catId=31&langId=en
 Missing: Farming Fund
 
 
-
 5. Decompose problem
  * Data gathering
  	* Multiple sources (DGB / EDF / ESF / ...)
  * Data restructuring
  * Chloropleth map
  * Bar chart
+ * Selectorelements for interactivity
  * Storytelling
  	* Arguments
 
@@ -64,6 +66,7 @@ Missing: Farming Fund
 7. Potential problems and solutions
 	* Too much data: preprocess data to narrow down the dataset, possibly aggregate to fund (now EVERY grant is stored)
 	* Incomplete data sets: Probably not, because the EU are bureaucrats, but it's possible..
+
 
 8. Similar
 Openspending.org has a similar dataset. This is however só big that it is almost unusable. Very lowlevel data is making finding data very hard
