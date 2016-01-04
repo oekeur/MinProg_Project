@@ -21,6 +21,7 @@ The aim is to clarify some common misconceptions about EU spending. Therefore it
 	* Integrating other data (such as GDP?)
 
 2. Problem Solving
+
 The problem being solved is aiding to transparancy about spending in the EU. This project could therefore possibly be seen among other Open Spending iniatives.
 There will be some stories told about common misconceptions about spending in the EU. Don't see this project however as a pro EU iniative, nor as a counter EU iniative. The idea is to make it possible to form an opinion based on the data. The stories included are merely included as a guidance or starting point.
 
@@ -30,11 +31,15 @@ There will be some stories told about common misconceptions about spending in th
 
 4. Data sets and sources
 
-https://open-data.europa.eu/en/data/dataset/FTS
+Directorate General for Budget: https://open-data.europa.eu/en/data/dataset/FTS
 
-ec.europa.eu/esf/main.jsp?catId=31&langId=en
+European Development Funds: https://open-data.europa.eu/en/data/dataset/FTS
 
-http://ec.europa.eu/esf/main.jsp?catId=443&langId=en
+European Social Fund: http://ec.europa.eu/esf/main.jsp?catId=31&langId=en
+
+Missing: Farming Fund
+
+
 
 5. Decompose problem
  * Data gathering
@@ -49,11 +54,14 @@ http://ec.europa.eu/esf/main.jsp?catId=443&langId=en
 6. What external components?
 	* D3
 	* D3 Maps
+	* (JQuery)
 	* (Bootstrap)
 	* (Typeahead /similar)
 
 
-7. Sotential problems and solutions
+7. Potential problems and solutions
+	* Too much data: preprocess data to narrow down the dataset, possibly aggregate to fund (now EVERY grant is stored)
+	* Incomplete data sets: Probably not, because the EU are bureaucrats, but it's possible..
 
 8. Similar
 Openspending.org has a similar dataset. This is however só big that it is almost unusable. Very lowlevel data is making finding data very hard
