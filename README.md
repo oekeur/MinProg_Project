@@ -9,18 +9,18 @@ My project centers upon public spending in the EU. Using data from the Directora
 The aim is to clarify some common misconceptions about EU spending. Therefore it is not only possible to explore the data, but also a set of stories will be shown. ie. "The EU is costing a lot of money" after which a comparison a shown between GDP and contribution to the EU.
 
 1. Features
-* Minimum Viable Product
-  * Map showing where money goes (choloropleth)
-  * Barchart showing the amount of € per category
-  * Choosing if you want to use countries or funds as categories
+  * Minimum Viable Product
+    * Map showing where money goes (choloropleth)
+    * Barchart showing the amount of € per category
+    * Choosing if you want to use countries or funds as categories
 
-* Optional
-  * Selecting different categories for comparison (search/click)
-  * Some premade stories about EU spending
-  * Linechart showing historical data
-  * Integrating data from the big EU investment funds
-  * Table for data exploration
-  * Integrating other data (such as GDP?)
+  * Optional
+    * Selecting different categories for comparison (search/click)
+    * Some premade stories about EU spending
+    * Linechart showing historical data
+    * Integrating data from the big EU investment funds
+    * Table for data exploration
+    * Integrating other data (such as GDP?)
 
 2. Problem Solving
 
