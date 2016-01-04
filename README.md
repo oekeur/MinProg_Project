@@ -21,8 +21,9 @@ The aim is to clarify some common misconceptions about EU spending. Therefore it
 	* Integrating other data (such as GDP?)
 
 2. Problem Solving
-	transparancy about eu spending
-	tell stories about common misconceptions?
+The problem being solved is aiding to transparancy about spending in the EU. This project could therefore possibly be seen among other Open Spending iniatives.
+There will be some stories told about common misconceptions about spending in the EU. Don't see this project however as a pro EU iniative, nor as a counter EU iniative. The idea is to make it possible to form an opinion based on the data. The stories included are merely included as a guidance or starting point.
+
 
 3. Sketch
 ![Designsketch](/doc/mockup1.png)
