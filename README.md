@@ -3,8 +3,8 @@
 ## Project proposal
 My project centers upon public spending in the EU. Using data from the Directorate General for Budget a visualization is made showing where the money goes. This will be done from different perspectives;
 
-1. Country perspective: showing what funds gives money to a country (select country > see the different funds)
-2. Funds perspective: select a fund and see where the money goes to (both on a bar chart and map)
+*. Country perspective: showing what funds gives money to a country (select country > see the different funds)
+*. Funds perspective: select a fund and see where the money goes to (both on a bar chart and map)
 
 The aim is to clarify some common misconceptions about EU spending. Therefore it is not only possible to explore the data, but also a set of stories will be shown. ie. "The EU is costing a lot of money" after which a comparison a shown between GDP and contribution to the EU.
 
