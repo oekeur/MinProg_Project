@@ -5,10 +5,16 @@
 	<title>EU Open Spending, Minprog Project UvA</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 	<script type="text/javascript" src="js/API/jquery-2.0.0.min.js"></script>
 	<script type="text/javascript" src="js/API/bootstrap.js"></script>
+	<script type="text/javascript" src="js/API/d3.min.js"></script>
+	<script type="text/javascript" src="js/API/topojson.js"></script>
+	<script type="text/javascript" src="js/API/datamaps.world.min.js"></script>
 </head>
 <body>
 	 <nav class="navbar navbar-inverse navbar-static-top">
@@ -25,12 +31,34 @@
 	</nav>
 
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-8">
-				<img src="images/europemap.png" class="img-responsive" alt="EU Map">
+		<div class="row" style="height: 100%">
+			<div class="col-lg-9" style="height: 100%">
+				<div class="row">
+					<div class="col-lg-8">
+						<div id="map" style="position: relative; width: 100%; height: 100%;"></div>
+					</div> 
+					<div class="col-lg-4" style="height: 100%">
+						Table with data here
+						<br>
+						<br>
+						<br>
+						<button id="change">Test button</button>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4" id="barchart"></div>
+					<div class="col-lg-4" id="linechart"></div>
+					<div class="col-lg-4">Selectors / brushing + linking comes over here</div>
+				</div>
 			</div>
-			<div class="col-lg-4">
-	  <h2>Find new insights by browsing the data</h2>
+
+			<div class="col-lg-3" style="height: 100%">
+		 <h2>Find new insights by browsing the data</h2>
 				<p><ul>
 		  		<li>I want to know how much each country gets/pays.</li>
 		  		<li>I want to know how much grants some fund gives to countries.</li>
@@ -48,25 +76,17 @@
 		  		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 		  		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 		  		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4"><img src="images/barchart.png" class="img-responsive" alt="Image"></div>
-			<div class="col-lg-4"><img src="images/linechart.png" class="img-responsive" alt="Image"></div>
-			<div class="col-lg-4">  
-
-				<div class="dropdown">
-			    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Perspectief<span class="caret"></span></button>
-			    <ul class="dropdown-menu">
-			      <li><a href="#">Landen</a></li>
-			      <li><a href="#">Organisaties</a></li>
-			      <li><a href="#">Categorie&#235;n</a></li>
-			    </ul>
-			</div>
-		</div>
+		  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		  		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		  		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		  		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		  		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		  		</div>
 		</div>
 	</div>
 	  
 
+	<script type="text/javascript" src="js/visualization.js"></script>
 </body>
 </html>
