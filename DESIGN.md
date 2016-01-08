@@ -1,9 +1,9 @@
 # UI:
-Map
-Line Chart
-Bar Chart
-Table
-Selectors/brushes
+- Map
+- Line Chart
+- Bar Chart
+- Table
+- Selectors/brushes
 
 
 What is shown is dependant on the current 'perspective'
@@ -13,6 +13,7 @@ What is shown is dependant on the current 'perspective'
 	- Bar graph: same as map only on a bar chart for better comparison
 
 	-country.click
+
 		- line chart: how much did this country receive in the past
 		- bar chart: how much does this country receive from each fund
 - "Fund view" perspective from one fund
@@ -40,8 +41,8 @@ What is shown is dependant on the current 'perspective'
 	- focus on mouseover (hover)
 
 - Bar chart:
-	click to select (mousedown, mousemove, mouseup)
-	brush to select (mousedown, mousemove, mouseup)
+	- click to select (mousedown, mousemove, mouseup)
+	- brush to select (mousedown, mousemove, mouseup)
 
 - Line Chart:
 	- focus + context via brushing (mousedown, mousemove, mouseup)
