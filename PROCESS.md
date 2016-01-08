@@ -19,3 +19,8 @@ Begonnen met designschets uitwerken in html met Bootstrap tot een prototype. Voo
 - Besloten om te proberen datamaps weg te halen en zelf met d3 en topojson een kaart te maken (want met d3 lukte het wel meerdere eventhandlers te gebruiken)
 - 12:00: worldmap ingetekdn met enkel d3, nu id's op de landen plaatsen, kijken hoe dat in datamaps gaat 
 - 15:00 adhv topojson met d3 kaart werkend ingevoegd in project
+
+## Day 5
+Bar + line chart ingevoegd, volledig d3 dashboard dus.
+Zooming aan map toegevoegd, trnaslate laat m uit beeld vliegen..
+met burshing bezig geweest, nog nie ingevoegd.

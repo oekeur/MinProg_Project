@@ -69,7 +69,7 @@ function Line () {
 // canvas size
 	var linemargin = {top: 20, right: 20, bottom: 60, left: 50},
       linewidth = 400 - linemargin.left - linemargin.right,
-      lineheight = 155  - linemargin.top - linemargin.bottom;
+      lineheight = 250  - linemargin.top - linemargin.bottom;
 
 var parseDate = d3.time.format("%Y%m%d").parse,
 	bisectDate = d3.bisector(function(d) { return d[0]; }).left;
@@ -209,7 +209,7 @@ focus.append("text")
 function Bar () {
 	var barmargin = {top: 20, right: 20, bottom: 30, left: 40},
 	    barwidth = 400  - barmargin.left - barmargin.right,
-	    barheight = 155  - barmargin.top - barmargin.bottom;
+	    barheight = 250  - barmargin.top - barmargin.bottom;
 
 	var x = d3.scale.ordinal()
 	    .rangeRoundBands([0, barwidth], .1);

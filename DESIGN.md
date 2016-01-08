@@ -3,6 +3,7 @@ Map
 Line Chart
 Bar Chart
 Table
+Selectors/brushes
 
 # Funtions:
 
