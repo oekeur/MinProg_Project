@@ -23,4 +23,6 @@ Begonnen met designschets uitwerken in html met Bootstrap tot een prototype. Voo
 ## Day 5
 Bar + line chart ingevoegd, volledig d3 dashboard dus.
 Zooming aan map toegevoegd, trnaslate laat m uit beeld vliegen..
-met burshing bezig geweest, nog nie ingevoegd.
+met brushing bezig geweest, nog niet ingevoegd.
+designdocument geschreven, prototype compleet door design en invoegen d3 visualisaties:
+wat mist er nog in prototype? tabel + selectors + filters
