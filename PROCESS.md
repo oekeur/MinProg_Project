@@ -26,3 +26,10 @@ Zooming aan map toegevoegd, trnaslate laat m uit beeld vliegen..
 met brushing bezig geweest, nog niet ingevoegd.
 designdocument geschreven, prototype compleet door design en invoegen d3 visualisaties:
 wat mist er nog in prototype? tabel + selectors + filters
+
+## Day 6
+Wat Ui interdace toegevoegd (bar chart sorteren, downloadknop voor de data),
+bezig geweest met datacleaning: als meerdere entiteiten onder 1 subsidie vallen, is de subsidietitel alleen in de eerste rij vermeld,
+in 1 jaar stond er ook alleen een totaalbedrag in de eerste rij van een subsidie en in de andere rijen niks.
+iets met while row[0] == empty: row[0] =row-1[0]. alles naar csv, xls met meerdere tabbladen tot 1 csv gemerged
+tevens zitten er soms separatortekens in de naam van een entiteit.. RegEx?

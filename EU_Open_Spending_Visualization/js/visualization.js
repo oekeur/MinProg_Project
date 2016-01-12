@@ -29,13 +29,6 @@ function Map () {
 	var svgmap = d3.select("#map").append("svg")
 	    .attr("width", mapwidth)
 	    .attr("height", mapheight)
-	    .call(d3.behavior.zoom()
-	    .on("zoom", redraw))
-
-// http://techslides.com/d3-world-maps-tooltips-zooming-and-queue
-function redraw() {
-    svgmap.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-}
 
 	d3.json("data/world-50m.json", function(error, world) {
 	  if (error) throw error;
@@ -53,6 +46,7 @@ function redraw() {
 	        return "country " +  d.id;
 	      }})
 	    .attr("d", path)
+	    // .on("click", console.log("Test"))
 
 	  svgmap.insert("path", ".graticule")
 	      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
@@ -226,7 +220,7 @@ function Bar () {
 	    .orient("left")
 	    .ticks(10, "%")
 
-	var svg = d3.select("#bar").append("svg")
+	var svg = d3.select("#bar").insert("svg")
 	    .attr("width", barwidth + barmargin.left + barmargin.right)
 	    .attr("height", barheight + barmargin.top + barmargin.bottom)
 	  .append("g")
@@ -263,6 +257,33 @@ function Bar () {
 	      .attr("width", x.rangeBand())
 	      .attr("y", function(d) { return y(d.frequency); })
 	      .attr("height", function(d) { return barheight - y(d.frequency); });
+  d3.select("#sort").on("change", change);
+
+  function change() {
+    // clearTimeout(sortTimeout);
+
+    // Copy-on-write since tweens are evaluated after a delay.
+    var x0 = x.domain(data.sort(this.checked
+        ? function(a, b) { return b.frequency - a.frequency; }
+        : function(a, b) { return d3.ascending(a.letter, b.letter); })
+        .map(function(d) { return d.letter; }))
+        .copy();
+
+    svg.selectAll(".bar")
+        .sort(function(a, b) { return x0(a.letter) - x0(b.letter); });
+
+    var transition = svg.transition().duration(750),
+        delay = function(d, i) { return i * 50; };
+
+    transition.selectAll(".bar")
+        .delay(delay)
+        .attr("x", function(d) { return x0(d.letter); });
+
+    transition.select(".x.axis")
+        .call(xAxis)
+      .selectAll("g")
+        .delay(delay);
+  }
 	});
 
 	function type(d) {
@@ -270,5 +291,33 @@ function Bar () {
 	  return d;
 	}
 
+
 }
 
+// Downloadbutton
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+var textFile = null,
+		create = document.getElementById('downloadselection'),
+    textbox = document.getElementById('textbox');
+
+// https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
+makeTextFile = function(text) {
+      var data = new Blob([text], {
+        type: 'text/plain'
+      });
+
+      // If we are replacing a previously generated file we need to
+      // manually revoke the object URL to avoid memory leaks.
+      if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+      }
+
+      textFile = window.URL.createObjectURL(data);
+
+      return textFile;
+    };
+
+   create.addEventListener('click', function() {
+    create.href = makeTextFile(textbox.value);
+  }, false);
+//////////////////////////////////////////////////////////////////////////////////////////////////////

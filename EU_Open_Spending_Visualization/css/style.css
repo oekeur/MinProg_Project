@@ -24,3 +24,15 @@
 y.axis.ticks{
 	font-size: 9px;
 }
+
+.line {
+  fill: none;
+  stroke: #001489;
+  stroke-width: 1px;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
