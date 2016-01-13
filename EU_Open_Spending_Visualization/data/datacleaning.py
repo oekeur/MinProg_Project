@@ -68,7 +68,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ':
-			data[j][i] = 'missing'
+			data[j][i] = ''
 		i += 1
 	j += 1
 
@@ -104,7 +104,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ':
-			data[j][i] = 'missing'
+			data[j][i] = ''
 		i += 1
 	j += 1
 
@@ -144,7 +144,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = 'missing'
+			data[j][i] = ''
 		i += 1
 	j += 1
 
@@ -188,7 +188,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = 'missing'
+			data[j][i] = ''
 		i += 1
 	j += 1
 
@@ -233,7 +233,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = 'missing'
+			data[j][i] = ''
 		i += 1
 	j += 1
 
@@ -278,7 +278,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = 'missing'
+			data[j][i] = ''
 		i += 1
 	j += 1
 
