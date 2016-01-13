@@ -1,5 +1,5 @@
 # Processbook
-A processbook to document day-to-day the challenges, decisions and breakdowns.
+A processbook to document day-to-day the challenges, decisions and emotionsl breakdowns.
 
 ## Day 1
 - Voorstel schrijven, eerste te moeilijk ideeën, na wat lezen het FTS (Financial Transparancy System) van de EC gevonden.
@@ -33,3 +33,14 @@ bezig geweest met datacleaning: als meerdere entiteiten onder 1 subsidie vallen,
 in 1 jaar stond er ook alleen een totaalbedrag in de eerste rij van een subsidie en in de andere rijen niks.
 iets met while row[0] == empty: row[0] =row-1[0]. alles naar csv, xls met meerdere tabbladen tot 1 csv gemerged
 tevens zitten er soms separatortekens in de naam van een entiteit.. RegEx?
+
+## Day 7
+Voornamelijk bezig geweest met datacleaning.
+Basisscript voor verwijderen van redundant data is af.
+Missing values worden gemarkeerd. in de data zitten newline karakters, lukt nog niet deze te verwijderen...
+Nagedacht over apart overzicht bestand met totalen, nog niet gemaakt.
+Git doet het niet
+
+## Day 8
+Datacleaning: probleem met de newline nu "grof" opgelost. Newlines worden vervangen door slashes. Nadeel: als er meerdere begunstigden zijn, kan je ze niet los benaderen. Voor alpha ok, voor final moet dat, vind ik, wel anders.
+Dus nieuwe entries als er newlines worden gevonden.
