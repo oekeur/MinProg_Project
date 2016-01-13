@@ -68,7 +68,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ':
-			data[j][i] = ''
+			data[j][i] = 'missing'
 		i += 1
 	j += 1
 
@@ -104,7 +104,7 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ':
-			data[j][i] = ''
+			data[j][i] = 'missing'
 		i += 1
 	j += 1
 
@@ -144,12 +144,13 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = ''
+			data[j][i] = 'missing'
 		i += 1
 	j += 1
 
 for row in data:
 	del row[4]
+	del row[-1]
 
  
 with open('EC_2010.csv', 'wb') as csvfile:
@@ -188,13 +189,13 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = ''
+			data[j][i] = 'missing'
 		i += 1
 	j += 1
 
 for row in data:
 	del row[4]
-
+	del row[-1]
  
 with open('EC_2011.csv', 'wb') as csvfile:
 	writer = csv.writer(csvfile, delimiter=delimiter)
@@ -233,12 +234,13 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = ''
+			data[j][i] = 'missing'
 		i += 1
 	j += 1
 
 for row in data:
 	del row[4]
+	del row[-1]
 
  
 with open('EC_2012.csv', 'wb') as csvfile:
@@ -278,12 +280,13 @@ for row in data:
 		if '\n' in column:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ' or column == '-':
-			data[j][i] = ''
+			data[j][i] = 'missing'
 		i += 1
 	j += 1
 
 for row in data:
 	del row[4]
+	del row[-1]
 
  
 with open('EC_2013.csv', 'wb') as csvfile:
