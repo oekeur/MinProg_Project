@@ -31,30 +31,29 @@ for row in data:
 			data[j][i] = ' / '.join(column.split('\n'))
 		if column == '' or column == ' ':
 			data[j][i] = 'missing'
-		if data[j][i] == 'R\xe9union'
 		i += 1
 	j += 1
 
 i = 0
 for row in data:
-	print json.dumps({data[i][0]: data[i+1][0], 
-						data[i][1]: data[i+1][1],
-						data[i][2]: data[i+1][2],
-						data[i][3]: data[i+1][3],
-						data[i][4]: data[i+1][4],
-						data[i][5]: data[i+1][5],
-						data[i][5]: data[i+1][6],
-						data[i][7]: data[i+1][7],
-						data[i][8]: data[i+1][8],},sort_keys=True, indent=4, separators=(',', ': '))
+	print json.dumps({data[0][0]: data[i+1][0], 
+						data[0][1]: data[i+1][1],
+						data[0][2]: data[i+1][2],
+						data[0][3]: data[i+1][3],
+						data[0][4]: data[i+1][4],
+						data[0][5]: data[i+1][5],
+						data[0][5]: data[i+1][6],
+						data[0][7]: data[i+1][7],
+						data[0][8]: data[i+1][8]}, indent=4, separators=(',', ': '), encoding="latin-1")
 	i += 1
-
-with open('EC_2007.csv', 'wb') as csvfile:
-	writer = csv.writer(csvfile, delimiter=delimiter, quoting=csv.QUOTE_MINIMAL)
-	for row in data:
-		writer.writerow(row)
-datafile.close()
-csvfile.close()
-data = []
+# ensure_ascii=False
+# with open('EC_2007.csv', 'wb') as csvfile:
+# 	writer = csv.writer(csvfile, delimiter=delimiter, quoting=csv.QUOTE_MINIMAL)
+# 	for row in data:
+# 		writer.writerow(row)
+# datafile.close()
+# csvfile.close()
+# data = []
 # #############################################################################
 # datafile = open("original/EC_2008_dirty.csv", 'U')
 # csvdata = csv.reader(datafile, delimiter=';',  quoting=csv.QUOTE_MINIMAL)
