@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/138929/what-are-the-relative-merits-of-csv-json-and-xml-for-a-rest-api

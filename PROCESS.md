@@ -44,3 +44,5 @@ Git doet het niet
 ## Day 8
 Datacleaning: probleem met de newline nu "grof" opgelost. Newlines worden vervangen door slashes. Nadeel: als er meerdere begunstigden zijn, kan je ze niet los benaderen. Voor alpha ok, voor final moet dat, vind ik, wel anders.
 Dus nieuwe entries als er newlines worden gevonden.
+
+## Day 9
