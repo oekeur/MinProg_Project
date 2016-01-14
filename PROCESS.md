@@ -46,3 +46,6 @@ Datacleaning: probleem met de newline nu "grof" opgelost. Newlines worden vervan
 Dus nieuwe entries als er newlines worden gevonden.
 
 ## Day 9
+Unicodeencoding heeft me veel tijd gekost. python is in utf-8, in de data zitten latin-1 karakters.
+Wel basis voor een sum over landen af. Bij runnen bleek er een fout in de datacleaning te zitten als er meerdere recipients voor een project zijn.
+Zorgen dat ie alle amounts in dezelfde column zet. Moet zo gefixt zijn.
