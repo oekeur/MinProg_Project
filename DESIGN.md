@@ -25,7 +25,7 @@ What is shown is dependant on the current 'perspective'
 		- line chart: how much did this country receive in the past
 
 - "category view"
-	- same as "fund view", only difference that the funds have been grouped in categores
+	- same as "fund view", only difference that the funds have been grouped in categories
 
 - for each "perspective"
 	- table shows a sortable overview of the first x rows of data (scrollable)
