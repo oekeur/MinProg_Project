@@ -6,41 +6,41 @@ delimiter = ','
 
 
 ############################################################################# 
-# datafile = open("original/EC_2007_dirty.csv", "r")
-# csvdata = csv.reader(datafile, delimiter=';')
-# for row in csvdata:
-# 	data.append(row)
+datafile = open("original/EC_2007_dirty.csv", "r")
+csvdata = csv.reader(datafile, delimiter=';')
+for row in csvdata:
+	data.append(row)
 
-# # remove redundant data
-# for row in data:
-# 	del row[12]
-# 	del row[10]
-# 	del row[9]
-# 	del row[8]
-# 	del row[7]
-# 	del row[5]
-# 	del row[3]
-# 	del row[2]
+# remove redundant data
+for row in data:
+	del row[12]
+	del row[10]
+	del row[9]
+	del row[8]
+	del row[7]
+	del row[5]
+	del row[3]
+	del row[2]
 
-# # correct missing values
-# j = 0
-# for row in data:
-# 	i = 0
-# 	for column in row:
-# 		if '\n' in column:
-# 			data[j][i] = ' / '.join(column.split('\n'))
-# 		if column == '' or column == ' ':
-# 			data[j][i] = 'missing'
-# 		i += 1
-# 	j += 1
+# correct missing values
+j = 0
+for row in data:
+	i = 0
+	for column in row:
+		if '\n' in column:
+			data[j][i] = ' / '.join(column.split('\n'))
+		if column == '' or column == ' ':
+			data[j][i] = 'missing'
+		i += 1
+	j += 1
 
-# with open('input/EC_2007.csv', 'wb') as csvfile:
-# 	writer = csv.writer(csvfile, delimiter=delimiter, quoting=csv.QUOTE_MINIMAL)
-# 	for row in data:
-# 		writer.writerow(row)
-# datafile.close()
-# csvfile.close()
-# data = []
+with open('input/EC_2007.csv', 'wb') as csvfile:
+	writer = csv.writer(csvfile, delimiter=delimiter, quoting=csv.QUOTE_MINIMAL)
+	for row in data:
+		writer.writerow(row)
+datafile.close()
+csvfile.close()
+data = []
 # #############################################################################
 # datafile = open("original/EC_2008_dirty.csv", 'U')
 # csvdata = csv.reader(datafile, delimiter=';',  quoting=csv.QUOTE_MINIMAL)
