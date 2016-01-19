@@ -48,35 +48,40 @@ for institution in conversion:
 	else:
 		value2010 = 0
 	if conversion[i].keys()[0] in data2011.keys():
-		value2011 = data2011[conversion[i].keys()[0].encode('latin-1')]
+		value2011 = data2011[conversion[i].keys()[0]]
 	else:
 		value2011 = 0
 	if conversion[i].keys()[0] in data2012.keys():
-		value2012 = data2012[conversion[i].keys()[0].encode('latin-1')]
+		value2012 = data2012[conversion[i].keys()[0]]
 	else:
 		value2012 = 0
 	if conversion[i].keys()[0] in data2013.keys():
-		value2013 = data2013[conversion[i].keys()[0].encode('latin-1')]
+		value2013 = data2013[conversion[i].keys()[0]]
 	else:
 		value2013 = 0
 	intermediate[conversion[i].keys()[0]] = {"2007" : value2007, "2008" : value2008, "2009" : value2009, "2010" : value2010, "2011" : value2011, "2012" : value2012, "2013" : value2013}
 	i += 1
 
-output = dict.fromkeys(keys, 0)
+#########################################
+# print json.dumps(intermediate, indent=4)
+# print json.dumps(keys, indent=4)
+#########################################
+
+output = dict.fromkeys(keys.values(), {"2007" : 0,"2008" : 0,"2009" : 0,"2010" : 0,"2011" : 0,"2012" : 0,"2013" : 0, "total" : 0})
 
 for institution in intermediate:
-	print keys[institution]
-# 	# print intermediate["Budget"]
-# 	print intermediate[institution]
+	output[keys[institution]]["2007"] += intermediate[institution]["2007"]
+	output[keys[institution]]["2008"] += intermediate[institution]["2008"]
+	output[keys[institution]]["2009"] += intermediate[institution]["2009"]
+	output[keys[institution]]["2010"] += intermediate[institution]["2010"]
+	output[keys[institution]]["2011"] += intermediate[institution]["2011"]
+	output[keys[institution]]["2012"] += intermediate[institution]["2012"]
+	output[keys[institution]]["2013"] += intermediate[institution]["2013"]
+	output[keys[institution]]["total"] += intermediate[institution]["2007"] + intermediate[institution]["2008"] + intermediate[institution]["2009"] + intermediate[institution]["2010"] + intermediate[institution]["2011"] + intermediate[institution]["2012"] + intermediate[institution]["2013"]
 
-
-# i = 0
-# for institution in intermediate:
-# 	category = keys[institution]
-# 	output[]
-# 	print conversion[i].keys()[0], conversion[i].values()[0]
-# 	i += 1
-
+#########################################
+# print json.dumps(output, indent=4)
+#########################################
 
 # with open('EC_institutiontotal.json', 'wb') as jsonfile:
 # 	json.dump(intermediate, jsonfile, indent=4, encoding="latin-1")
