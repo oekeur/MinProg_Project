@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/colorbrewer.css">
 
 	<script type="text/javascript" src="js/API/jquery-2.0.0.min.js"></script>
 	<script type="text/javascript" src="js/API/bootstrap.js"></script>
@@ -20,6 +21,7 @@
 	<script type="text/javascript" src="js/API/d3.slider.js"></script>
 	<script type="text/javascript" src="js/API/topojson.js"></script>
 	<script type="text/javascript" src="js/API/datamaps.world.min.js"></script>
+	<script type="text/javascript" src="js/API/colorbrewer.js"></script>
 </head>
 <body>
 	 <nav class="navbar navbar-inverse navbar-static-top">
@@ -46,27 +48,12 @@
 					<table class="table table-hover">
 					    <thead>
 					      <tr>
-					        <th id="tableheader">Institution</th>
-					        <th>Purpose</th>
+					        <th id="tableheader"></th>
+					        <!-- <th>Purpose</th> -->
 					        <th>Amount</th>
 					      </tr>
 					    </thead>
-					    <tbody>
-					      <tr>
-					        <td>John</td>
-					        <td>Doe en dan nu een veel te lange string die gewrapped moet worden</td>
-					        <td>john@example.com</td>
-					      </tr>
-					      <tr>
-					        <td>Mary</td>
-					        <td>Moe</td>
-					        <td>mary@example.com</td>
-					      </tr>
-					      <tr>
-					        <td>July</td>
-					        <td>Dooley</td>
-					        <td>july@example.com</td>
-					      </tr>
+					    <tbody id="tablebody">
 					    </tbody>
 					  </table>
 						<br>						
@@ -94,12 +81,25 @@
 					<br>
 					<br>
 					<br>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="country-radio" value="option2">
+					    What do countries receive?
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="category-radio" value="option2">
+					    How much do categories give?
+					  </label>
+					</div>
+					<a href="explore.html"><button type="button" class="btn btn-default">Reset visualization</button></a>
 					<br>
-					Selectors / brushing + linking comes over here</div>
+					</div>
 				</div>
 			</div>
 
-			<div class="col-lg-3">
+			<div class="col-lg-3" >
 		 <h2>Find new insights by browsing the data</h2>
 
 		 <!-- <textarea id="textbox">Type something here</textarea> -->

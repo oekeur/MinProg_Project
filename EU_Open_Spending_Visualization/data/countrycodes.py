@@ -2,11 +2,11 @@ import json
 
 with open('input/country-codes.json', 'r') as infile:
 	data = json.load(infile)
-outputdata = []
+outputdata = {}
 
 i = 0
 for country in data:
-	outputdata.append({data[i]["name"] : data[i]["country-code"]})
+	outputdata[data[i]["country-code"]]  = data[i]["name"]
 	i += 1
 
 # print outputdata

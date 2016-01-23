@@ -40,3 +40,18 @@ y.axis.ticks{
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.bar{
+  fill: #001489;
+}
+.bar:hover{
+  fill: black;
+}
+
+#table{
+  max-height: 450px;
+  overflow-y: auto;
+}
+.col-lg-3{
+  border-left-style: solid;
+}
