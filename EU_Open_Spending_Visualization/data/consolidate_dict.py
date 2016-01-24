@@ -27,18 +27,18 @@ with open('EC_2013_countrytotal.json', 'r') as infile:
 dictkeys = {}
 
 for item in conversion:
-	dictkeys[item.values()[0]] = 0
-
+	dictkeys[item] = 0
+ 
 output = dict.fromkeys(dictkeys, {"2007" : 0,"2008" : 0,"2009" : 0,"2010" : 0,"2011" : 0,"2012" : 0,"2013" : 0, "total" : 0})
 
 i = 0
 for country in conversion:
 	try:
-		output[conversion[i].values()[0]] = {"total": data2007[conversion[i].keys()[0]] + data2008[conversion[i].keys()[0]] + data2009[conversion[i].keys()[0]] + data2010[conversion[i].keys()[0]] + data2011[conversion[i].keys()[0]] + data2012[conversion[i].keys()[0]] + data2013[conversion[i].keys()[0]],"2007" : data2007[conversion[i].keys()[0]], "2008" :  data2008[conversion[i].keys()[0]],"2009" : data2009[conversion[i].keys()[0]],"2010" : data2010[conversion[i].keys()[0]],"2011" : data2011[conversion[i].keys()[0]],"2012" : data2012[conversion[i].keys()[0]],"2013" : data2013[conversion[i].keys()[0]]}
+		output[country] = {"total": data2007[conversion[country]] + data2008[conversion[country]] + data2009[conversion[country]] + data2010[conversion[country]] + data2011[conversion[country]] + data2012[conversion[country]] + data2013[conversion[country]], "2007" : data2007[conversion[country]],  "2008" :  data2008[conversion[country]], "2009" : data2009[conversion[country]], "2010" : data2010[conversion[country]], "2011" : data2011[conversion[country]], "2012" : data2012[conversion[country]], "2013" : data2013[conversion[country]]}
 	except:
 		pass
 	i += 1
-print json.dumps(output, indent=4)
+# print json.dumps(output, indent=4)
 
 with open('EC_countrytotal_dict.json', 'wb') as jsonfile:
 	json.dump(output, jsonfile, indent=4, encoding="latin-1")

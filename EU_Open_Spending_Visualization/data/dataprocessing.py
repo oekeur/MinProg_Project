@@ -7,20 +7,20 @@ institutions = []
 
 # ########################################################################################
 
-data =[]
-datafile = open("input/EC_2007.csv", "r")
-csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-for row in csvdata:
-	data.append(row)
-datafile.close()
+# data =[]
+# datafile = open("input/EC_2007.csv", "r")
+# csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+# for row in csvdata:
+# 	data.append(row)
+# datafile.close()
 
-for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
-	if row[6].strip() not in institutions:
-		institutions.append(row[6].strip())
+# for row in data:
+# 	# if row[3].strip() not in countries and '/' not in row[3]:
+# 	# 	countries.append(row[3].strip())
+# 	if row[6].strip() not in institutions:
+# 		institutions.append(row[6].strip())
 
-institutions.sort()
+# institutions.sort()
 # countries.sort()
 # countrydata = dict.fromkeys(countries, 0)
 # institutiondata = dict.fromkeys(institutions, 0)
@@ -51,20 +51,20 @@ institutions.sort()
 # # del countrydata
 # del institutiondata
 ######################################################################################
-data =[]# 
-datafile = open("input/EC_2008.csv", "r")
-csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-for row in csvdata:
-	data.append(row)
-datafile.close()
+# data =[]# 
+# datafile = open("input/EC_2008.csv", "r")
+# csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+# for row in csvdata:
+# 	data.append(row)
+# datafile.close()
 
-for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
-	if row[6].strip() not in institutions:
-		institutions.append(row[6].strip())
+# for row in data:
+# 	# if row[3].strip() not in countries and '/' not in row[3]:
+# 	# 	countries.append(row[3].strip())
+# 	if row[6].strip() not in institutions:
+# 		institutions.append(row[6].strip())
 
-institutions.sort()
+# institutions.sort()
 # countries.sort()
 # countrydata = dict.fromkeys(countries, 0)
 # # institutiondata = dict.fromkeys(institutions, 0)
@@ -102,54 +102,54 @@ for row in csvdata:
 datafile.close()
 
 for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
+	if row[3].strip() not in countries and '/' not in row[3]:
+		countries.append(row[3].strip())
 	if row[7].strip() not in institutions:
 		institutions.append(row[7].strip())
 
 institutions.sort()
-# countries.sort()
-# # countrydata = dict.fromkeys(countries, 0)
-# institutiondata = dict.fromkeys(institutions, 0)
+countries.sort()
+countrydata = dict.fromkeys(countries, 0)
+institutiondata = dict.fromkeys(institutions, 0)
 
-# for row in data:
-# 	# if countrydata.has_key(row[3].strip()):
-# 	# 	countrydata[row[3].strip()] += float(row[5])
-# 	if institutiondata.has_key(row[7].strip()):
-# 		if row[5] != "missing" and  row[5] != "Amount":
-# 			institutiondata[row[7].strip()] += float(row[5])
+for row in data:
+	if countrydata.has_key(row[3].strip()):
+		countrydata[row[3].strip()] += float(row[5])
+	if institutiondata.has_key(row[7].strip()):
+		if row[5] != "missing" and  row[5] != "Amount":
+			institutiondata[row[7].strip()] += float(row[5])
 
-
-# # with open('EC_2009_countrytotal.json', 'wb') as jsonfile:
-# # 	json.dump(countrydata, jsonfile, indent=4, encoding="latin-1")
-# # jsonfile.close()
+# print json.dumps(countrydata, indent=4, encoding="latin-1")
+with open('EC_2009_countrytotal.json', 'wb') as jsonfile:
+	json.dump(countrydata, jsonfile, indent=4, encoding="latin-1")
+jsonfile.close()
 # with open('EC_2009_institutiontotal.json', 'wb') as jsonfile:
 # 	json.dump(institutiondata, jsonfile, indent=4, encoding="latin-1")
 # jsonfile.close()
 
-# # with open('EC_2009_countrytotal.csv', 'wb') as csvfile:
-# # 	writer = csv.DictWriter(csvfile, outputdata.keys(), delimiter=',')
-# # 	writer.writeheader()
-# # 	writer.writerow(outputdata)
-# countries = []
-# institutions = []
-# # del countrydata
+# with open('EC_2009_countrytotal.csv', 'wb') as csvfile:
+# 	writer = csv.DictWriter(csvfile, outputdata.keys(), delimiter=',')
+# 	writer.writeheader()
+# 	writer.writerow(outputdata)
+countries = []
+institutions = []
+del countrydata
 # del institutiondata
 ######################################################################################
-data =[]
-datafile = open("input/EC_2010.csv", "r")
-csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-for row in csvdata:
-	data.append(row)
-datafile.close()
+# data =[]
+# datafile = open("input/EC_2010.csv", "r")
+# csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+# for row in csvdata:
+# 	data.append(row)
+# datafile.close()
 
-for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
-	if row[6].strip() not in institutions:
-		institutions.append(row[6].strip())
+# for row in data:
+# 	# if row[3].strip() not in countries and '/' not in row[3]:
+# 	# 	countries.append(row[3].strip())
+# 	if row[6].strip() not in institutions:
+# 		institutions.append(row[6].strip())
 
-institutions.sort()
+# institutions.sort()
 # countries.sort()
 # # countrydata = dict.fromkeys(countries, 0)
 # institutiondata = dict.fromkeys(institutions, 0)
@@ -177,20 +177,20 @@ institutions.sort()
 # # del countrydata
 # del institutiondata
 ########################################################################################
-data =[]
-datafile = open("input/EC_2011.csv", "r")
-csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-for row in csvdata:
-	data.append(row)
-datafile.close()
+# data =[]
+# datafile = open("input/EC_2011.csv", "r")
+# csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+# for row in csvdata:
+# 	data.append(row)
+# datafile.close()
 
-for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
-	if row[6].strip() not in institutions:
-		institutions.append(row[6].strip())
+# for row in data:
+# 	# if row[3].strip() not in countries and '/' not in row[3]:
+# 	# 	countries.append(row[3].strip())
+# 	if row[6].strip() not in institutions:
+# 		institutions.append(row[6].strip())
 
-institutions.sort()
+# institutions.sort()
 # countries.sort()
 # countrydata = dict.fromkeys(countries, 0)
 # institutiondata = dict.fromkeys(institutions, 0)
@@ -221,20 +221,20 @@ institutions.sort()
 # # del countrydata
 # del institutiondata
 ########################################################################################
-data =[]
-datafile = open("input/EC_2012.csv", "r")
-csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-for row in csvdata:
-	data.append(row)
-# datafile.close()
+# data =[]
+# datafile = open("input/EC_2012.csv", "r")
+# csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+# for row in csvdata:
+# 	data.append(row)
+# # datafile.close()
 
-for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
-	if row[6].strip() not in institutions:
-		institutions.append(row[6].strip())
+# for row in data:
+# 	# if row[3].strip() not in countries and '/' not in row[3]:
+# 	# 	countries.append(row[3].strip())
+# 	if row[6].strip() not in institutions:
+# 		institutions.append(row[6].strip())
 
-institutions.sort()
+# institutions.sort()
 # countries.sort()
 # countrydata = dict.fromkeys(countries, 0)
 # institutiondata = dict.fromkeys(institutions, 0)
@@ -266,20 +266,20 @@ institutions.sort()
 # # del countrydata
 # del institutiondata
 ########################################################################################
-data =[]
-datafile = open("input/EC_2013.csv", "r")
-csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-for row in csvdata:
-	data.append(row)
-datafile.close()
+# data =[]
+# datafile = open("input/EC_2013.csv", "r")
+# csvdata = csv.reader(datafile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+# for row in csvdata:
+# 	data.append(row)
+# datafile.close()
 
-for row in data:
-	# if row[3].strip() not in countries and '/' not in row[3]:
-	# 	countries.append(row[3].strip())
-	if row[6].strip() not in institutions:
-		institutions.append(row[6].strip())
+# for row in data:
+# 	# if row[3].strip() not in countries and '/' not in row[3]:
+# 	# 	countries.append(row[3].strip())
+# 	if row[6].strip() not in institutions:
+# 		institutions.append(row[6].strip())
 
-institutions.sort()
+# institutions.sort()
 
 # countries.sort()
 # # countrydata = dict.fromkeys(countries, 0)
@@ -310,6 +310,6 @@ institutions.sort()
 # # del countrydata
 # del institutiondata
 ########################################################################################
-with open('EC_institutions_test.json', 'wb') as jsonfile:
-	json.dump(institutions, jsonfile, indent=4, encoding="latin-1")
-jsonfile.close()
+# with open('EC_institutions_test.json', 'wb') as jsonfile:
+# 	json.dump(institutions, jsonfile, indent=4, encoding="latin-1")
+# jsonfile.close()

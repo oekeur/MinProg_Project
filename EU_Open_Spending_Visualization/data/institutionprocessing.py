@@ -68,27 +68,22 @@ for institution in conversion:
 #########################################
 
 output = dict.fromkeys(set(keys.values()), {"2007" : 0,"2008" : 0,"2009" : 0,"2010" : 0,"2011" : 0,"2012" : 0,"2013" : 0, "total" : 0})
+print output
 
 for institution in intermediate:
-	
-	value2007 = intermediate[institution]["2007"]
-	value2008 = intermediate[institution]["2008"]
-	value2009 = intermediate[institution]["2009"]
-	value2010 = intermediate[institution]["2010"]
-	value2011 = intermediate[institution]["2011"]
-	value2012 = intermediate[institution]["2012"]
-	value2013 = intermediate[institution]["2013"]
-	valuetotal = value2007 + value2008 + value2009 + value2010 + value2011 + value2012 + value2013
-	# print value2007, value2008, value2009, value2010, value2011, value2012, value2013, valuetotal
-	output[keys[institution]]["2007"] = intermediate[institution]["2007"]
-	output[keys[institution]]["2008"] = intermediate[institution]["2008"]
-	output[keys[institution]]["2009"] = intermediate[institution]["2009"]
-	output[keys[institution]]["2010"] = intermediate[institution]["2010"]
-	output[keys[institution]]["2011"] = intermediate[institution]["2011"]
-	output[keys[institution]]["2012"] = intermediate[institution]["2012"]
-	output[keys[institution]]["2013"] = intermediate[institution]["2013"]
-	output[keys[institution]]["total"] = valuetotal
-	print output[keys[institution]]
+	global output
+	output[keys[institution]]["2007"] += intermediate[institution]["2007"]
+	output[keys[institution]]["2008"] += intermediate[institution]["2008"]
+	output[keys[institution]]["2009"] += intermediate[institution]["2009"]
+	output[keys[institution]]["2010"] += intermediate[institution]["2010"]
+	output[keys[institution]]["2011"] += intermediate[institution]["2011"]
+	output[keys[institution]]["2012"] += intermediate[institution]["2012"]
+	output[keys[institution]]["2013"] += intermediate[institution]["2013"]
+	output[keys[institution]]["total"] += intermediate[institution]["2007"] + intermediate[institution]["2008"] + intermediate[institution]["2009"] + intermediate[institution]["2010"] + intermediate[institution]["2011"] + intermediate[institution]["2012"] + intermediate[institution]["2013"]
+	print keys[institution], output[keys[institution]]
+print json.dumps(output, indent=4)
+
+		output[conversion[i].values()[0]] = {"total": data2007[conversion[i].keys()[0]] + data2008[conversion[i].keys()[0]] + data2009[conversion[i].keys()[0]] + data2010[conversion[i].keys()[0]] + data2011[conversion[i].keys()[0]] + data2012[conversion[i].keys()[0]] + data2013[conversion[i].keys()[0]],"2007" : data2007[conversion[i].keys()[0]], "2008" :  data2008[conversion[i].keys()[0]],"2009" : data2009[conversion[i].keys()[0]],"2010" : data2010[conversion[i].keys()[0]],"2011" : data2011[conversion[i].keys()[0]],"2012" : data2012[conversion[i].keys()[0]],"2013" : data2013[conversion[i].keys()[0]]}
 
 
 #########################################
