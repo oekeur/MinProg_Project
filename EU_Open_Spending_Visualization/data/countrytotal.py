@@ -33,10 +33,34 @@ output = dict.fromkeys(dictkeys, {"2007" : 0,"2008" : 0,"2009" : 0,"2010" : 0,"2
 
 i = 0
 for country in conversion:
-	try:
-		output[country] = {"total": data2007[conversion[country]] + data2008[conversion[country]] + data2009[conversion[country]] + data2010[conversion[country]] + data2011[conversion[country]] + data2012[conversion[country]] + data2013[conversion[country]], "2007" : data2007[conversion[country]],  "2008" :  data2008[conversion[country]], "2009" : data2009[conversion[country]], "2010" : data2010[conversion[country]], "2011" : data2011[conversion[country]], "2012" : data2012[conversion[country]], "2013" : data2013[conversion[country]]}
-	except:
-		pass
+	if conversion[country] in data2007.keys():
+		value2007 = data2007[conversion[country]]
+	else:
+		value2007 = 0
+	if conversion[country] in data2008.keys():
+		value2008 = data2008[conversion[country]]
+	else:
+		value2008 = 0
+	if conversion[country] in data2009.keys():
+		value2009 = data2009[conversion[country]]
+	else:
+		value2009 = 0
+	if conversion[country] in data2010.keys():
+		value2010 = data2010[conversion[country]]
+	else:
+		value2010 = 0
+	if conversion[country] in data2011.keys():
+		value2011 = data2011[conversion[country]]
+	else:
+		value2011 = 0
+	if conversion[country] in data2012.keys():
+		value2012 = data2012[conversion[country]]
+	else:
+		value2012 = 0
+	if conversion[country] in data2013.keys():
+		value2013 = data2013[conversion[country]]
+	total = value2007 + value2008 + value2009 + value2010 + value2011 + value2012 + value2013
+	output[country] = {"total": value2007 + value2008 + value2009 + value2010 + value2011 + value2012 + value2013, "2007" : value2007,  "2008" :  value2008, "2009" : value2009, "2010" : value2010, "2011" : value2011, "2012" : value2012, "2013" : value2013}
 	i += 1
 # print json.dumps(output, indent=4)
 

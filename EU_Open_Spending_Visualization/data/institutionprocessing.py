@@ -65,24 +65,13 @@ for institution in conversion:
 #########################################
 # print json.dumps(intermediate, indent=4)
 # print json.dumps(keys, indent=4)
-#########################################
+######################################### 
 
 output = dict.fromkeys(set(keys.values()), {"2007" : 0,"2008" : 0,"2009" : 0,"2010" : 0,"2011" : 0,"2012" : 0,"2013" : 0, "total" : 0})
 
 for institution in intermediate:
-
-	output[keys[institution]]["2007"] += intermediate[institution]["2007"]
-	output[keys[institution]]["2008"] += intermediate[institution]["2008"]
-	output[keys[institution]]["2009"] += intermediate[institution]["2009"]
-	output[keys[institution]]["2010"] += intermediate[institution]["2010"]
-	output[keys[institution]]["2011"] += intermediate[institution]["2011"]
-	output[keys[institution]]["2012"] += intermediate[institution]["2012"]
-	output[keys[institution]]["2013"] += intermediate[institution]["2013"]
-	output[keys[institution]]["total"] += intermediate[institution]["2007"] + intermediate[institution]["2008"] + intermediate[institution]["2009"] + intermediate[institution]["2010"] + intermediate[institution]["2011"] + intermediate[institution]["2012"] + intermediate[institution]["2013"]
-print json.dumps(output["Research"], indent=4)
-# print json.dumps(output, indent=4)
-
-		# output[conversion[i].values()[0]] = {"total": data2007[conversion[i].keys()[0]] + data2008[conversion[i].keys()[0]] + data2009[conversion[i].keys()[0]] + data2010[conversion[i].keys()[0]] + data2011[conversion[i].keys()[0]] + data2012[conversion[i].keys()[0]] + data2013[conversion[i].keys()[0]],"2007" : data2007[conversion[i].keys()[0]], "2008" :  data2008[conversion[i].keys()[0]],"2009" : data2009[conversion[i].keys()[0]],"2010" : data2010[conversion[i].keys()[0]],"2011" : data2011[conversion[i].keys()[0]],"2012" : data2012[conversion[i].keys()[0]],"2013" : data2013[conversion[i].keys()[0]]}
+	output[keys[institution]] = {"2007" : output[keys[institution]]["2007"] + intermediate[institution]["2007"], "2008" : output[keys[institution]]["2008"] + intermediate[institution]["2008"], "2009" : output[keys[institution]]["2009"] + intermediate[institution]["2009"], "2010" : output[keys[institution]]["2010"] + intermediate[institution]["2010"], "2011" : output[keys[institution]]["2011"] + intermediate[institution]["2011"], "2012" : output[keys[institution]]["2012"] + intermediate[institution]["2012"], "2013" : output[keys[institution]]["2013"] + intermediate[institution]["2013"], "total" : output[keys[institution]]["total"] + intermediate[institution]["2007"] + intermediate[institution]["2008"] + intermediate[institution]["2009"] + intermediate[institution]["2010"] + intermediate[institution]["2011"] + intermediate[institution]["2012"] + intermediate[institution]["2013"]}
+print json.dumps(output, indent=4)
 
 
 #########################################
@@ -92,6 +81,6 @@ print json.dumps(output["Research"], indent=4)
 # with open('EC_institutiontotal.json', 'wb') as jsonfile:
 # 	json.dump(intermediate, jsonfile, indent=4, encoding="latin-1")
 # jsonfile.close()
-# with open('EC_categorytotal.json', 'wb') as jsonfile:
-# 	json.dump(output, jsonfile, indent=4, encoding="latin-1")
-# jsonfile.close()
+with open('EC_categorytotal.json', 'wb') as jsonfile:
+	json.dump(output, jsonfile, indent=4, encoding="latin-1")
+jsonfile.close()
