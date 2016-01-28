@@ -1,8 +1,10 @@
 import json
 
+ # load the conversion between name and countrycode
 with open('countrycode.json', 'r') as infile:
 	conversion = json.load(infile)
 infile.close()
+# for each year load the corresponding data
 with open('EC_2007_countrytotal.json', 'r') as infile:
 	data2007 = json.load(infile)
 infile.close()
@@ -24,13 +26,14 @@ infile.close()
 with open('EC_2013_countrytotal.json', 'r') as infile:
 	data2013 = json.load(infile)
 
+# make a dictionary containg all the countries, initialize at 0
 dictkeys = {}
-
 for item in conversion:
 	dictkeys[item] = 0
  
 output = dict.fromkeys(dictkeys, {"2007" : 0,"2008" : 0,"2009" : 0,"2010" : 0,"2011" : 0,"2012" : 0,"2013" : 0, "total" : 0})
 
+# determine if data is present for a country in a year, if so: use this, else: 0.
 i = 0
 for country in conversion:
 	if conversion[country] in data2007.keys():
@@ -60,10 +63,11 @@ for country in conversion:
 	if conversion[country] in data2013.keys():
 		value2013 = data2013[conversion[country]]
 	total = value2007 + value2008 + value2009 + value2010 + value2011 + value2012 + value2013
+	# put this all into a dictionary with the key being the countrycode
 	output[country] = {"total": value2007 + value2008 + value2009 + value2010 + value2011 + value2012 + value2013, "2007" : value2007,  "2008" :  value2008, "2009" : value2009, "2010" : value2010, "2011" : value2011, "2012" : value2012, "2013" : value2013}
 	i += 1
-# print json.dumps(output, indent=4)
 
+# save a json object (dictionary) with for each country the data per year and a total amount
 with open('EC_countrytotal_dict.json', 'wb') as jsonfile:
 	json.dump(output, jsonfile, indent=4, encoding="latin-1")
 

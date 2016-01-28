@@ -1,3 +1,5 @@
+![Designsketch](/doc/mockup1.png)
+
 # UI:
 - Map
 - Line Chart

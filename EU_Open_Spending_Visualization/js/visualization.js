@@ -81,14 +81,22 @@ function Map () {
 
 	var projection = d3.geo.mercator()
 	    .center([20, 48])
-	    .scale((500))
+	    .scale((400))
 
 	var path = d3.geo.path()
 	    .projection(projection);
 
+	var zoom = d3.behavior.zoom()
+    .translate(projection.translate())
+    .scale(projection.scale())
+    .scaleExtent([mapheight, 8 * mapheight])
+    .on("zoom", zoomed);
+
 	var svgmap = d3.select("#map").append("svg")
 	    .attr("width", mapwidth)
 	    .attr("height", mapheight)
+	    .call(zoom)
+
 
 	d3.json("data/world-50m.json", function(error, world) {
 	  if (error) throw error;
@@ -141,9 +149,14 @@ function Map () {
 				linedata[6][1] = countrytotal[d.id]["2013"]
 				d3.select("#line").select("svg").remove()
 				Line()
+				d3.select("#linetitle").text([countrycode[d.id]])
 		 	}
 		}
 	})
+	function zoomed() {
+	  projection.translate(d3.event.translate).scale(d3.event.scale);
+	  svgmap.selectAll("path").attr("d", path);
+	}
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -199,6 +212,12 @@ function Line (d) {
 
 	  x.domain(d3.extent(linedata, function(d) { return d[0]; })).nice();
 	  y.domain(d3.extent(linedata, function(d) { return d[1]; })).nice();
+	  	svg.append("text")
+			  .attr("y", 10)
+			  .attr("x", linewidth / 2)
+			  .attr("id", "linetitle")
+			  .style("text-anchor", "middle")
+			  .text("Total")
 
 		svg.append("g")
 		  .attr("class", "x axis")
@@ -221,6 +240,8 @@ function Line (d) {
 		  .attr("x", 10)
 		  .style("text-anchor", "end")
 		  .text("€ (*Mld.)")
+		 
+
 
 		svg.append("path")
 		   .datum(linedata)
@@ -312,6 +333,7 @@ function drawbar () {
 		linedata[6][1] = categorytotal[d.category]["2013"]
 		d3.select("#line").select("svg").remove()
 		Line()
+		d3.select("#linetitle").text(d.category)
 	}
 
 // from: http://bl.ocks.org/mbostock/3885705
