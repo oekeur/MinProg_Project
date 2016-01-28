@@ -1,73 +1,20 @@
 # EU Open Spending Visualization ![Flag](/doc/euflag.gif)
 
-## Project proposal
-My project centers upon public spending in the EU. Using data from the Directorate General for Budget a visualization is made showing where the money goes. This will be done from different perspectives;
+## Doel
+Dit project is gemaakt in het kader van het programmeerproject behorende bij de minor programmeren aan de Universiteit van Amsterdam. Doel is om, met behulp van eerder opgedane kennis, een interactieve visualisatie van voldoende diepgang te creëren. Dit betekent onder andere dat er een bepaald probleem moet worden opgelost en dat goede visualisatie werkwijzen moeten worden gevolgd. Daarnaast moet de voortgang, aan de hand van richtlijnen, worden bijgehouden. Op deze pagina volgt een korte uiteenzetting van welk probleem wordt aangepakt en hoe dit wordt gedaan.
 
-* Country perspective: showing what funds gives money to a country (select country > see the different funds)
-* Funds perspective: select a fund and see where the money goes to (both on a bar chart and map)
+Er is gekozen om een project te doen in het kader van Open Spending. Open Spending gaat over het vrijelijk openbaar beschikbaar maken van de (overheids)financiën. Open Spending is onderdeel van de Open State beweging die vindt dat de overheid het beste kan functioneren als deze zo transparant mogelijk is. Deze transparantie komt bij de Open State beweging tot uiting in het strijden voor publieke data Open Data maken. Door data Open Data te maken kan iedereen hiermee aan de slag om bijvoorbeeld te innoveren of om de overheid te controleren. Open Spending volgt hier dan ook logisch uit. Geld is immers het belangrijkste middel van een overheid en dit moet dan ook goed gecontroleerd worden.
 
-The aim is to clarify some common misconceptions about EU spending. Therefore it is not only possible to explore the data, but also a set of stories will be shown. ie. "The EU is costing a lot of money" after which a comparison a shown between GDP and contribution to the EU.
+In het kader van transparantie heeft de Europese Commissie ervoor gekozen om alle financiën van de Europese Unie als Open Data beschikbaar te stellen. Hier lijkt echter weinig tot niks mee gedaan te worden: een kans!
 
-1. Features
-  * Minimum Viable Product
-    * Map showing where money goes (choloropleth)
-    * Barchart showing the amount of € per category
-    * Choosing if you want to use countries or funds as categories
+## Probleem
 
-  * Optional
-    * Selecting different categories for comparison (search/click)
-    * Some premade stories about EU spending
-    * Linechart showing historical data
-    * Integrating data from the big EU investment funds
-    * Table for data exploration
-    * Integrating other data (such as GDP?)
+Het probleem dat met deze visualisatie wordt opgelost is de ontoegankelijkheid van de open data van de EU. Er is zeer veel data beschikbaar -alle transacties zijn doorzoekbaar-, maar door de grote hoeveelheid data kan je hier weinig mee. Door een visualisatie te maken, wordt de mogelijkheid gecreërd om op en gestructureerde manier door de data te zoeken. Om de mogelijkheden om de data te doorzoeken te vergroten, kan er op meerdere manieren door de data worden gezocht. Data wordt, zoals het geshcikt is voor de data, weergegeven op een kaart -wanneer er ruimtelijke spreiding is-, in een barchart voor vergelijken van verschillende categorieën, in een linechart voor data met een tijdsdimensie en ten slotte in een tabel voor verkenning en doorzoeken.
 
-2. Problem Solving
+![Screenshot](/doc/screenshot.png)
 
-The problem being solved is aiding to transparancy about spending in the EU. This project could therefore possibly be seen among other Open Spending iniatives.
-There will be some stories told about common misconceptions about spending in the EU. Don't see this project however as a pro EU iniative, nor as a counter EU iniative. The idea is to make it possible to form an opinion based on the data. The stories included are merely included as a guidance or starting point.
-
-
-3. Sketch
-
-![Designsketch](/doc/mockup1.png)
-
-4. Data sets and sources
-
+# Data
 Directorate General for Budget: https://open-data.europa.eu/en/data/dataset/FTS
 
-European Development Funds: https://open-data.europa.eu/en/data/dataset/FTS
-
-European Social Fund: http://ec.europa.eu/esf/main.jsp?catId=31&langId=en
-
-Missing: Farming Fund
-
-
-
-5. Decompose problem
- * Data gathering
- 	* Multiple sources (DGB / EDF / ESF / ...)
- * Data restructuring
- * Chloropleth map
- * Bar chart
- * Storytelling
- 	* Arguments
-
-
-6. What external components?
-	* D3
-	* D3 Maps
-	* (JQuery)
-	* (Bootstrap)
-	* (Typeahead /similar)
-
-
-7. Potential problems and solutions
-	* Too much data: preprocess data to narrow down the dataset, possibly aggregate to fund (now EVERY grant is stored)
-	* Incomplete data sets: Probably not, because the EU are bureaucrats, but it's possible..
-
-8. Similar
-
-Openspending.org has a similar dataset. This is however só big that it is almost unusable. Very lowlevel data is making finding data very hard
-
-https://openspending.org/eu-commission-fts?_view=default
+# License
+Dit project is geplubliceerd onder de GNU GPL licentie. Voor gedetailleerde informatie over licenties (onder andere van componenten) kijk in het licentiebestand.

@@ -43,8 +43,8 @@ For the map and data: on(hover) the line graph changes according to the where th
 
 -----
 ## Challenges
-The main challenge, as appeared, was to preprocess the data. The data is very low-level and so the structuring of data had to be completly done. Furthermore the data contained some strange encodings and weird practices.
-Lots of time lost correcting this and structuring the data into something usefull.
+The main challenge, as appeared, was to preprocess the data. The data is very low-level and so the structuring of data had to be completely done. Furthermore the data contained some strange encodings and weird practices.
+Lots of time lost correcting this and structuring the data into something usefull. Main problem here is that from 2009 onwards when one grants had multiple subsidiaries the data was all put into one row in excel separated by newlines. This means that processing this data gets alot more complicated. Trade-off that has been made here was to group this data into missing values, because I did no succeed in separating the values without new errors.
 
 ### Possible improvements
  - more
