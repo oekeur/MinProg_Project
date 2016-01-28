@@ -9,7 +9,7 @@ In het kader van transparantie heeft de Europese Commissie ervoor gekozen om all
 
 ## Probleem
 
-Het probleem dat met deze visualisatie wordt opgelost is de ontoegankelijkheid van de open data van de EU. Er is zeer veel data beschikbaar -alle transacties zijn doorzoekbaar-, maar door de grote hoeveelheid data kan je hier weinig mee. De applicatie die de EU beschikbaar heeft gesteld, stelt in staat om naar specifieke begrotingen te zoeken, maar geeft geen overzicht.
+Het probleem dat met deze visualisatie wordt opgelost is de ontoegankelijkheid van de open data van de EU. Er is zeer veel data beschikbaar -alle transacties zijn doorzoekbaar-, maar door de grote hoeveelheid data kan je hier weinig mee. De applicatie die de EU beschikbaar heeft gesteld (hieronder), stelt in staat om naar specifieke begrotingen te zoeken, maar geeft geen overzicht.
 ![FTS](/doc/FTS.png)
 Door een visualisatie te maken, wordt de mogelijkheid gecreërd om op en gestructureerde manier door de data te zoeken en overzicht te bieden. Om de mogelijkheden om de data te doorzoeken te vergroten, kan er op meerdere manieren door de data worden gezocht. Data wordt, zoals het geshcikt is voor de data, weergegeven op een kaart -wanneer er ruimtelijke spreiding is-, in een barchart voor vergelijken van verschillende categorieën, in een linechart voor data met een tijdsdimensie en ten slotte in een tabel voor verkenning en doorzoeken.
 
