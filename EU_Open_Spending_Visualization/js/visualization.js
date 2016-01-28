@@ -23,12 +23,14 @@ var years = ["2007", "2008", "2009", "2010", "2011", "2012", "2013"]
 
 
 function initData (){
+	// calculate the max for the bar chart
 	for (category in categorytotal){
 		bardata.push({category: category, "total" : categorytotal[category]["total"]})
 		if (categorytotal[category]["total"] > barmax){
 	    		barmax = categorytotal[category]["total"]
     }
 	}
+	// calculate the mins and maxes for the map
 	for (country in countrytotal){
 		if (typeof(countrytotal[country]) !== "undefined"){
 			mapdata.push({country: country, total: countrytotal[country]["total"]})
@@ -42,6 +44,7 @@ function initData (){
 	    }
     }
 	}
+	// initialize data for the linemap
 	i= 0
 	for (year in categorytotal){
 		if (i == 0){
@@ -71,14 +74,17 @@ function initData (){
 function Map () {
 	var mapwidth = $("#map").width(),
 	    mapheight = mapwidth * 0.6125;
+	    // accept some responsiveness, but use a minwidth
 	if (mapheight > 500){
 		var mapheight = 500;
-	}
+		}
 
+	// initialize the colorscale for the choropleth
 	var colors = d3.scale.linear()
 					.range(["#d5e1fd","#001489"])
 					.domain([mapmin,mapmax])
 
+	// set the projection
 	var projection = d3.geo.mercator()
 	    .center([20, 48])
 	    .scale((400))
@@ -86,12 +92,14 @@ function Map () {
 	var path = d3.geo.path()
 	    .projection(projection);
 
+    // from http://bl.ocks.org/mbostock/2206340
 	var zoom = d3.behavior.zoom()
     .translate(projection.translate())
     .scale(projection.scale())
     .scaleExtent([mapheight, 8 * mapheight])
     .on("zoom", zoomed);
 
+    // make a svgcanvas
 	var svgmap = d3.select("#map").append("svg")
 	    .attr("width", mapwidth)
 	    .attr("height", mapheight)
@@ -101,7 +109,6 @@ function Map () {
 	d3.json("data/world-50m.json", function(error, world) {
 	  if (error) throw error;
 	  var countries = topojson.feature(world, world.objects.countries).features;
-
 
 // reused from datamaps
 	  svgmap.selectAll(".country")
@@ -123,7 +130,8 @@ function Map () {
 	    })
 	    .on("mouseover", setLinedataMap)
 
-	  svgmap.insert("path", ".graticule")
+	    // make the borders
+	    svgmap.insert("path", ".graticule")
 	      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
 	      .attr("class", "boundary")
 	      .attr("d", path);
@@ -152,6 +160,7 @@ function Map () {
 		 	}
 		}
 	})
+	// from http://bl.ocks.org/mbostock/2206340
 	function zoomed() {
 	  projection.translate(d3.event.translate).scale(d3.event.scale);
 	  svgmap.selectAll("path").attr("d", path);
@@ -164,11 +173,10 @@ function Map () {
 function Line (d) {
 // canvas size
 	var linemargin = {top: 20, right: 20, bottom: 50, left: 60},
-      linewidth = 400 - linemargin.left - linemargin.right,
-      lineheight = 250  - linemargin.top - linemargin.bottom;
+      	linewidth = 400 - linemargin.left - linemargin.right,
+      	lineheight = 250  - linemargin.top - linemargin.bottom;
 
 	var parseDate = d3.time.format("%Y").parse
-		// bisectDate = d3.bisector(function(d) { return d[0]; }).left;
 
 	// scaling
 	var x = d3.time.scale()
@@ -177,6 +185,7 @@ function Line (d) {
 	var y = d3.scale.linear()
 	    .range([lineheight, 0]);
 
+	// axis setup
 	var xAxis = d3.svg.axis()
 	    .scale(x)
 	    .orient("bottom");
@@ -190,7 +199,7 @@ function Line (d) {
 	    .x(function(d) { return x(d[0]); })
 	    .y(function(d) { return y(d[1]); });
 
-	// canvas
+	// make a svgcanvas
 	var svg = d3.select("#line").append("svg")
 	    .attr("width", linewidth + linemargin.left + linemargin.right)
 	    .attr("height", lineheight + linemargin.top + linemargin.bottom)
@@ -201,7 +210,7 @@ function Line (d) {
 
 // import data and draw path and axis
 	function draw () {
-
+		// process the data first
 	  linedata.forEach(function(d) {
 	  	if (typeof(d[0]) == "string"){
 	    d[0] = parseDate(d[0])
@@ -209,8 +218,11 @@ function Line (d) {
 	    d[1] = d[1] / 1000000000
 	  });
 
+	  // calculate the domain of the data
 	  x.domain(d3.extent(linedata, function(d) { return d[0]; })).nice();
 	  y.domain(d3.extent(linedata, function(d) { return d[1]; })).nice();
+
+	  	// add the label with the selected country / category
 	  	svg.append("text")
 			  .attr("y", 10)
 			  .attr("x", linewidth / 2)
@@ -219,6 +231,7 @@ function Line (d) {
 			  .style("font-weight", "bold")
 			  .text("Total")
 
+		// add the xaxis
 		svg.append("g")
 		  .attr("class", "x axis")
 		  .attr("transform", "translate(0," + lineheight + ")")
@@ -230,7 +243,7 @@ function Line (d) {
 		  .attr("transform", "rotate(-45)")
 		  .style("text-anchor", "start")
 
-
+		// add y axis
 		svg.append("g")
 		  .attr("class", "y axis")
 		  .call(yAxis)
@@ -240,7 +253,8 @@ function Line (d) {
 		  .attr("x", 10)
 		  .style("text-anchor", "end")
 		  .text("€ (*Mld.)")
-		 
+
+		// add the line
 		svg.append("path")
 		   .datum(linedata)
 		   .attr("class", "line")
@@ -257,21 +271,23 @@ function Bar () {
 	    barwidth = 400  - barmargin.left - barmargin.right,
 	    barheight = 250  - barmargin.top - barmargin.bottom;
 
+	    // scaling
 	var x = d3.scale.ordinal()
 	    .rangeRoundBands([0, barwidth], .1);
 
 	var y = d3.scale.linear()
 	    .range([barheight, 0]);
 
+	// set up the axes
 	var xAxis = d3.svg.axis()
 	    .scale(x)
 	    .orient("bottom")
-	    // .tickFormat("");
 
 	var yAxis = d3.svg.axis()
 	    .scale(y)
 	    .orient("left")
 
+ 	// make a svgcanvas
 	var svg = d3.select("#bar").insert("svg")
 	    .attr("width", barwidth + barmargin.left + barmargin.right)
 	    .attr("height", barheight + barmargin.top + barmargin.bottom)
@@ -280,97 +296,94 @@ function Bar () {
 
     drawbar()
 
-function drawbar () {
+	function drawbar () {
+		  // calculate the domain on which to draw the bars
+		  x.domain(bardata.map(function(d) { return d.category}));
+		  y.domain([0, d3.max(bardata, function(d) { return d.total/ 1000000000; })]).nice();
 
-	  x.domain(bardata.map(function(d) { return d.category}));
-	  y.domain([0, d3.max(bardata, function(d) { return d.total/ 1000000000; })]).nice();
+		  // add the yaxis
+		  svg.append("g")
+		      .attr("class", "y axis")
+		      .call(yAxis)
+		    .append("text")
+		      .attr("transform", "rotate(-90)")
+		      .attr("y", -40)
+		      .attr("x", 10)
+		      .attr("dy", ".71em")
+		      .style("text-anchor", "end")
+		      .text("€ (*Mld.)")
+			.selectAll("text")
+			  .style("text-size", "9px");
 
+			// add the bars
+		  svg.selectAll(".bar")
+		      .data(bardata)
+		    .enter().append("rect")
+		      .attr("class", "bar")
+		      .attr("id", function(d) {return d.category})
+		      .attr("x", function(d) { return x(d.category); })
+		      .attr("width", x.rangeBand())
+		      .attr("y", function(d) { return y(d.total / 1000000000); })
+		      .attr("height", function(d) { return barheight - y((d.total / 1000000000)) })
+		      .on("click", setLinedataBar)
+		      .on("mouseover", setLinedataBar)
 
-	  svg.append("g")
-	      .attr("class", "y axis")
-	      .call(yAxis)
-	    .append("text")
-	      .attr("transform", "rotate(-90)")
-	      .attr("y", -40)
-	      .attr("x", 10)
-	      .attr("dy", ".71em")
-	      .style("text-anchor", "end")
-	      .text("€ (*Mld.)")
-		.selectAll("text")
-		  .style("text-size", "9px");
+		  // add the xaxis
+		  svg.append("g")
+		      .attr("class", "x axis")
+		      .attr("transform", "translate(0," + barheight + ")")
+		      .call(xAxis)
+		      .selectAll("text")
+		       .attr("transform", "rotate(-45)")
+		       .attr("x", -5)
+		       .attr("y", 5)
+		       .style("text-anchor", "end")
 
-	  svg.selectAll(".bar")
-	      .data(bardata)
-	    .enter().append("rect")
-	      .attr("class", "bar")
-	      .attr("id", function(d) {return d.category})
-	      .attr("x", function(d) { return x(d.category); })
-	      .attr("width", x.rangeBand())
-	      .attr("y", function(d) { return y(d.total / 1000000000); })
-	      .attr("height", function(d) { return barheight - y((d.total / 1000000000)) })
-	      .on("click", setLinedataBar)
-	      .on("mouseover", setLinedataBar)
+		function setLinedataBar (d){
+			linedata[0][1] = categorytotal[d.category]["2007"];
+			linedata[1][1] = categorytotal[d.category]["2008"]
+			linedata[2][1] = categorytotal[d.category]["2009"]
+			linedata[3][1] = categorytotal[d.category]["2010"]
+			linedata[4][1] = categorytotal[d.category]["2011"]
+			linedata[5][1] = categorytotal[d.category]["2012"]
+			linedata[6][1] = categorytotal[d.category]["2013"]
+			d3.select("#line").select("svg").remove()
+			Line()
+			d3.select("#linetitle").text(d.category)
+		}
 
-	  svg.append("g")
-	      .attr("class", "x axis")
-	      .attr("transform", "translate(0," + barheight + ")")
-	      .call(xAxis)
-	      .selectAll("text")
+	// from: http://bl.ocks.org/mbostock/3885705
+		d3.select("#sort")
+			.on("change", change);
+
+	  function change() {
+
+	    var x0 = x.domain(bardata.sort(this.checked
+	        ? function(a, b) { return b.total - a.total; }
+	        : function(a, b) { return d3.ascending(a.category, b.category); })
+	        .map(function(d) { return d.category; }))
+	        .copy();
+
+	    svg.selectAll(".bar")
+	        .sort(function(a, b) { return x0(a.category) - x0(b.category); });
+
+	    var transition = svg.transition().duration(750),
+	        delay = function(d, i) { return i * 50; };
+
+	    transition.selectAll(".bar")
+	        .delay(delay)
+	        .attr("x", function(d) { return x0(d.category); });
+
+	    transition.select(".x.axis")
+	        .call(xAxis)
+	        .selectAll("text")
 	       .attr("transform", "rotate(-45)")
 	       .attr("x", -5)
 	       .attr("y", 5)
 	       .style("text-anchor", "end")
-
-	function setLinedataBar (d){
-		linedata[0][1] = categorytotal[d.category]["2007"];
-		linedata[1][1] = categorytotal[d.category]["2008"]
-		linedata[2][1] = categorytotal[d.category]["2009"]
-		linedata[3][1] = categorytotal[d.category]["2010"]
-		linedata[4][1] = categorytotal[d.category]["2011"]
-		linedata[5][1] = categorytotal[d.category]["2012"]
-		linedata[6][1] = categorytotal[d.category]["2013"]
-		d3.select("#line").select("svg").remove()
-		Line()
-		d3.select("#linetitle").text(d.category)
-	}
-
-// from: http://bl.ocks.org/mbostock/3885705
-	d3.select("#sort")
-		.on("change", change);
-
-  function change() {
-
-    var x0 = x.domain(bardata.sort(this.checked
-        ? function(a, b) { return b.total - a.total; }
-        : function(a, b) { return d3.ascending(a.category, b.category); })
-        .map(function(d) { return d.category; }))
-        .copy();
-
-    svg.selectAll(".bar")
-        .sort(function(a, b) { return x0(a.category) - x0(b.category); });
-
-    var transition = svg.transition().duration(750),
-        delay = function(d, i) { return i * 50; };
-
-    transition.selectAll(".bar")
-        .delay(delay)
-        .attr("x", function(d) { return x0(d.category); });
-
-    transition.select(".x.axis")
-        .call(xAxis)
-        .selectAll("text")
-       .attr("transform", "rotate(-45)")
-       .attr("x", -5)
-       .attr("y", 5)
-       .style("text-anchor", "end")
-      .selectAll("g")
-        .delay(delay);
-  }
-	}
-
-	function type(d) {
-	  d.total = +d.total;
-	  return d;
+	      .selectAll("g")
+	        .delay(delay);
+	  }
 	}
 }
 
@@ -387,32 +400,3 @@ function Table () {
 		}	
 	}
 }
-
-
-// // Downloadbutton
-// //////////////////////////////////////////////////////////////////////////////////////////////////////
-// var textFile = null,
-// 		create = document.getElementById('downloadselection'),
-//     textbox = document.getElementById('textbox');
-
-// // https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
-// makeTextFile = function(text) {
-//       var data = new Blob([text], {
-//         type: 'text/plain'
-//       });
-
-//       // If we are replacing a previously generated file we need to
-//       // manually revoke the object URL to avoid memory leaks.
-//       if (textFile !== null) {
-//         window.URL.revokeObjectURL(textFile);
-//       }
-
-//       textFile = window.URL.createObjectURL(data);
-
-//       return textFile;
-//     };
-
-//    create.addEventListener('click', function() {
-//     create.href = makeTextFile(textbox.value);
-//   }, false);
-// //////////////////////////////////////////////////////////////////////////////////////////////////////
