@@ -11,6 +11,9 @@ In het kader van transparantie heeft de Europese Commissie ervoor gekozen om all
 
 Het probleem dat met deze visualisatie wordt opgelost is de ontoegankelijkheid van de open data van de EU. Er is zeer veel data beschikbaar -alle transacties zijn doorzoekbaar-, maar door de grote hoeveelheid data kan je hier weinig mee. Door een visualisatie te maken, wordt de mogelijkheid gecreërd om op en gestructureerde manier door de data te zoeken. Om de mogelijkheden om de data te doorzoeken te vergroten, kan er op meerdere manieren door de data worden gezocht. Data wordt, zoals het geshcikt is voor de data, weergegeven op een kaart -wanneer er ruimtelijke spreiding is-, in een barchart voor vergelijken van verschillende categorieën, in een linechart voor data met een tijdsdimensie en ten slotte in een tabel voor verkenning en doorzoeken.
 
+## Gebruik
+De visualisatie geeft in eerste instantie een overview van totalen weer. Wanneer er met de muis over een land of een grafiek wordt bewogen, past de lijngrafiek zich aan om de data per jaar voor dat land of die categorie weer te geven.
+
 ![Screenshot](/doc/screenshot.png)
 
 # Data
