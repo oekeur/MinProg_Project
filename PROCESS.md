@@ -51,3 +51,36 @@ Wel basis voor een sum over landen af. Bij runnen bleek er een fout in de datacl
 Zorgen dat ie alle amounts in dezelfde column zet. Moet zo gefixt zijn.
 
 ## Day 10
+Dus niet zo gefixt.. Rottig om zelf de data te moeten structureren. List of dicts is niet handig blijkbaar, want dan moet je loopen en daarna keys uitlezen.
+Alles in dicts zetten
+
+## Day 11
+Bezig met de data van de landen per jaar in 1 dict te zetten. Ondertussen ook bezig om instituties te sommen op categorieën.
+
+## Day 12
+Data per land per jaar werkt. Choropleth wil niet aan de praat met colorbrewer. Gesettled voor een linearscale. Quantize zou ook nog kunnen
+
+## Day 13
+Choropleth werkt, verder gaan met categoriën werkend krijgen voor de barchart. linechart werkt wel voor de countrydata.
+
+## Day 14
+Categorieën geven in de loop wel de juiste respons maar buiten de loop niet, ligt niet aan de scope (getest..)
+
+## Day 15
+Categoriën 's avonds werkend gekregen. Doet wat t moet doen, werkt ook meteen in linechart, SCORE.
+Probleem is dat door de manier van assignen de complete dictionary aan de laatste waarde uit de loop werd toegewezen. De manier van countrydata als basis om beter te assignen.
+
+## Day 16
+Deze week heel weinig tijd ivm tentamens in Delft.
+
+## Day 17
+Deze week heel weinig tijd ivm tentamens in Delft.
+
+## Day 18
+Deze week heel weinig tijd ivm tentamens in Delft.
+Vandaag code opgeschoond.
+Vriend naar code laten kijken, die opmerkte dat bepaalde landen geen data hadden. Door verkeerd gebruik van try/except werden niet alle landen werden opgenomen in de data (als voor 1 jaar data miste bouncete de hele reeks)
+Nu per jaar checken of er een value is, zo nee 0, anders assign.
+
+## Day 19
+Laatste tentamen gehad. Beetje getweakt aan UI, Lorem ipsums door zinnige teksten vervangen. Het stories-tabblad is verwijderd wegens gebrek aan tijd. Voor de rest de deliverables maken.
