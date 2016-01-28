@@ -217,6 +217,7 @@ function Line (d) {
 			  .attr("x", linewidth / 2)
 			  .attr("id", "linetitle")
 			  .style("text-anchor", "middle")
+			  .style("font-weight", "bold")
 			  .text("Total")
 
 		svg.append("g")
@@ -241,8 +242,6 @@ function Line (d) {
 		  .style("text-anchor", "end")
 		  .text("€ (*Mld.)")
 		 
-
-
 		svg.append("path")
 		   .datum(linedata)
 		   .attr("class", "line")

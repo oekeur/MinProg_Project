@@ -49,22 +49,13 @@
 					    <thead>
 					      <tr>
 					        <th id="tableheader"></th>
-					        <!-- <th>Purpose</th> -->
 					        <th>Amount </th>
 					      </tr>
 					    </thead>
 					    <tbody id="tablebody">
 					    </tbody>
 					  </table>
-						<br>						
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
+
 					</div>
 				</div>
 				<div class="row">
@@ -78,6 +69,7 @@
 					</div>
 					<div class="col-lg-4" id="line"></div>
 					<div class="col-lg-4">
+						<p class="text-muted">Note: countries colored in gray did not receive ANY money</p>
 					<a href="explore.html"><button type="button" class="btn btn-default">Reset visualization</button></a>
 					<br>
 					</div>
@@ -86,8 +78,20 @@
 
 			<div class="col-lg-3" >
 		 <h2>Find new insights by browsing the data</h2>
-
-		 <!-- <textarea id="textbox">Type something here</textarea> -->
+		 <h3>What am I seeing?</h3>
+		 <p>To the left you can find several views on data concerning grants and commitments by the European Commision from the years 2007 till 2013</p> 
+		 <p>By default you will see a map showcasing, by means of colorcoding, the total amount of money each country received. Beneath the map is a bar chart showing how much each category of EU department has spended. To the right of the bar chart is a line graph, initially showing the total amount of money from 2007 till 2013. Lastly there is a table showing the total amount each country has received.</p>
+		 <h3>How to use this?</h3>
+		 <p>Several interactions are possible:
+		 <ul>
+		 	<li>Zoom: if you want to zoom in on regions with small countries, use your scrollwheel.</li>
+		 	<br>
+		 	<li>Moving the map: drag the map to show other parts of the world.</li>
+		 	<br>
+		 	<li>Show data per year: if you move your mouse over the map or bar chart the line chart will adjust accordingly.</li>
+		 	<br>
+		 	<li>Inspect the data yourself: use the download button beneath to download the cleaned and where needed consolidated data files. These are in machine readable (human understandable) (JSON) format.</li>
+		 </ul></p>
 				<p>
 		 		</p>
 		  		<form method="get" action="data/download.zip">
