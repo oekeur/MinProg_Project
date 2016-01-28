@@ -1,4 +1,5 @@
-# Final Report <sub>Oscar Keur, 11122102</sub>
+# Final Report 
+<sub>Oscar Keur, 11122102</sub>
 
 ## Description of application
 The visualization made in this project revolves around public spending in the EU in general. The specific data that is shown is the set of
@@ -7,7 +8,7 @@ I think this visualization can indeed accomplish this at current stage, but with
 
 
 At the time of writing this report I found that the EU did indeed make such an application. Main differences: 
-- MY visualization shows the development from 2007 untill 2013.
+- My visualization shows the development from 2007 untill 2013.
 - FTS doesn't have any means of comparing countries
 - FTS only has low-level data, I added an aggregate component to the data
 http://ec.europa.eu/budget/fts/index_en.htm
@@ -32,7 +33,7 @@ Process the data files into files containing the data for a country or instituti
 Merge the data per year into one json object (dictionary) with the country / category as the key
 
 ### Visualization
-- Initialize some data
+- First initialize some data
 - Draw the map, with the total amount received as the input for a chloropleth
 - Draw a barchart showing the total of categories
 - Draw a line graph, which initially shows the sum of all the amounts
@@ -46,5 +47,6 @@ The main challenge, as appeared, was to preprocess the data. The data is very lo
 Lots of time lost correcting this and structuring the data into something usefull.
 
 ### Possible improvements
+ - more
  - deeper data (make the level available at a lower lovel (include the specific grants for example))
  - search function
