@@ -121,7 +121,6 @@ function Map () {
 		    	return colors((countrytotal[d.id]["total"]))
 	    	}
 	    })
-	    .on("click", setLinedataMap)
 	    .on("mouseover", setLinedataMap)
 
 	  svgmap.insert("path", ".graticule")
